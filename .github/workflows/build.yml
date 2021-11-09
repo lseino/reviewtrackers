@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build & Push Image
       run: |
-        docker login --username=${{ secrets.DOCKERHUB_USERNAME }} --password=${{ secrets.DOCKERHUB_TOKEN }}
         docker build -t "$username/$name:v1.0" .
         docker push "$username/$name:v1.0"
+        docker login --username=${{ secrets.DOCKERHUB_USERNAME }} --password=${{ secrets.DOCKERHUB_TOKEN }}
         echo "image name for terraform task definition = $username/$name:v1.0"
