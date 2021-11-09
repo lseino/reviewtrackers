@@ -8,12 +8,7 @@ on:
       
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    env:
-      name: 'rt'
-      username: lseino
-
     steps:
       -
         name: Checkout
@@ -36,4 +31,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: $username/$name:latest
+          tags: lseino/rt:latest
