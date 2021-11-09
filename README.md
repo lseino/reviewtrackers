@@ -1,5 +1,5 @@
 # Review Trackers Project
-
+This project builds a docker image containing a sample python flask web application and deploys it to AWS ECS. All deployments are done using terraform. Below you will find steps on how to run this project.
 ## Folder Structure
 ```
 ├── Dockerfile
@@ -38,6 +38,7 @@
 - `cd terraform`
 - `terraform init && terraform plan`
 - `terraform apply`
+- After completion, the terraform code will output the load balancer DNS name. Copy it and paste on your web browser and add `/status` eg `python-lb-tf-1584404261.us-east-1.elb.amazonaws.com/status` to see results
 
 ## Clean Up
 - `terraform destroy`
