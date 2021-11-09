@@ -1,5 +1,6 @@
 # Review Trackers Project
 This project builds a docker image containing a sample python flask web application and deploys it to AWS ECS. All deployments are done using terraform. Below you will find steps on how to run this project.
+The terraform module also create a VPC for this deployment.
 ## Folder Structure
 ```
 ├── Dockerfile
