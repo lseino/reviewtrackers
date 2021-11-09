@@ -40,3 +40,9 @@
 ## Clean Up
 - `terraform destroy`
 
+## Stretch goals Completed 
+- Build and push container image via CI
+- Write Kubernetes manifests
+- The application should be exposed as a service such that it can be accessed from a browser
+- Create a `/ip` endpoint that returns the city and state of the IP requesting the page
+
