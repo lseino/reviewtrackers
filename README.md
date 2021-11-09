@@ -36,7 +36,8 @@
 
 ### Step 2 - Run Terraform Code
 - `cd terraform`
-- `terraform plan && terraform apply`
+- `terraform init && terraform plan`
+- `terraform apply`
 
 ## Clean Up
 - `terraform destroy`
