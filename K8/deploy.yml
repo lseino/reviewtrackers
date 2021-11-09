@@ -1,0 +1,40 @@
+# Deploys  django polls application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-flask
+spec:
+  selector:
+    matchLabels:
+      app: python-flask
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: python-flask
+    spec:
+      containers:
+      - image: "python-flask:1.0"
+        name: python-flask
+        resources:
+            requests:
+              memory: "32Mi"
+              cpu: "125m"
+            limits:
+              memory: "64Mi"
+              cpu: "0.5"
+        imagePullPolicy: Never # only for minikube builds where #eval(minikube docker-env) is used
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-app
+  labels:
+    app: django-app
+spec:
+  type: LoadBalancer
+  ports:
+   - port: 5000
+  selector:
+   app: python-flask

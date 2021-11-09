@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+      
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      username: 'lseino'
+      name: 'python-app'
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build & Push Image
+      run: |
+        docker login --username=$username --password=${{ secrets.dockerhub_pass }}
+        docker image build -t $username/$name:v1.0.0 .
+        docker push $username/$name:v1.0.0
+        echo "image name for terraform task definition = $username/$name:v1.0.0"
