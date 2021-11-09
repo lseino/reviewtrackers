@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "python-app" {
   [
     {
       "name": "python-app",
-      "image": "lseino/rt:2.0",
+      "image": "lseino/rt:latest",
       "essential": true,
       "portMappings": [
         {

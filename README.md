@@ -29,9 +29,10 @@
 - `cd reviewtrackers`
 
 ### Optional - Build docker image with Git Actions
-- add your docker hub password in secrets $dockerhub_pass
-- change the username env variable in the *./github/workflows/build.yml file to your docker* hub username
-- push repo
+- add your DOCKERHUB_USERNAME & DOCKERHUB_TOKEN as secrets in the project
+- optionally you can build and push image locally using 
+     - `docker build -t $dockerhub_username/image_name:tag .`
+     - `docker push $dockerhub_username/image_name:tag` (you might need to authenticate your registry)
 
 ### Step 2 - Run Terraform Code
 - `cd terraform`
